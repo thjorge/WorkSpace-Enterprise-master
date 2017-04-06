@@ -48,7 +48,7 @@ public class ConsoleView {
 		
 	
 		ClienteDAOImpl daoCli = new ClienteDAOImpl(em);
-		List<Cliente> listaCli = daoCli.buscarTodosClientes();
+		List<Cliente> listaCli = daoCli.listar();
 		
 		
 		
@@ -56,7 +56,7 @@ public class ConsoleView {
 		
 		JOptionPane.showMessageDialog(null, "TODOS CLIENTES");
 		
-		listaCli = daoCli.buscarTodosClientes();
+		listaCli = daoCli.listar();
 		for (Cliente cliente : listaCli) {
 			JOptionPane.showMessageDialog(null, "Nome: " + cliente.getNome()
 												+ "\nCPF: " 
