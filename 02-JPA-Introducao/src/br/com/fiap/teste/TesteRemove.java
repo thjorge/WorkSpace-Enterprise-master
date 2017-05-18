@@ -10,7 +10,7 @@ public class TesteRemove {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("THJORGE");
+		EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("CLIENTE_ORACLE");
 		EntityManager em = fabrica.createEntityManager();
 		//Remover pizza
 		Pizza pizza = em.find(Pizza.class, 1);		

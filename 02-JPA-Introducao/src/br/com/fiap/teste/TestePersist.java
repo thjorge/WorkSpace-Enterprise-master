@@ -5,7 +5,6 @@ import java.util.Calendar;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.swing.JOptionPane;
 
 import br.com.fiap.entity.BordaRecheada;
 import br.com.fiap.entity.Pizza;
@@ -16,23 +15,23 @@ public class TestePersist {
 	public static void main(String[] args) {
 		//Criar o entity manager!
 		
-		EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("THJORGE");
+		EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("CLIENTE_ORACLE");
 		
 		EntityManager em = fabrica.createEntityManager();
 		
 		//Cadastrar uma pizza
 		Pizza pizza = new Pizza(0, 30,
-				"CALABREZA",
+				"4 queijos",
 				BordaRecheada.CHOCOLATE, 
 				TamanhoPizza.GRANDE,
 				Calendar.getInstance(),
-				"SEM ANOTAÇÃO", null);
+				"Com bastante gordura", null);
 		
 		em.getTransaction().begin();// Inicializa uma tranzação
 		em.persist(pizza); //Novo no banco
 		em.getTransaction().commit(); //Finaliza com commit
 		
-	JOptionPane.showMessageDialog(null, "Pizza no banco");
+		System.out.println("Pizza no banco");
 		
 	}
 	

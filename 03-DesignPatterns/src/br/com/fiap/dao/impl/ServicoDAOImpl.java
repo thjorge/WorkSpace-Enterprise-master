@@ -1,11 +1,17 @@
 package br.com.fiap.dao.impl;
 
-import br.com.fiap.dao.ServicoDAO;
-import br.com.fiap.entity.Servico;
+import javax.persistence.EntityManager;
 
-public class ServicoDAOImpl 
-		extends GenericDAOImpl<Servico, Integer> 
-								implements ServicoDAO {
+import br.com.fiap.dao.ServicoDAO;
+import br.com.fiap.entities.Servico;
+
+public class ServicoDAOImpl extends GenericDAOImpl<Servico,Integer> implements ServicoDAO{
+
+	public ServicoDAOImpl(EntityManager em) {
+		super(em);
+
+	}
 
 	
+
 }

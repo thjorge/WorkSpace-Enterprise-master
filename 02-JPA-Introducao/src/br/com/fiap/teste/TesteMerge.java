@@ -11,7 +11,7 @@ public class TesteMerge {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("THJORGE");
+		EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("CLIENTE_ORACLE");
 		EntityManager em = fabrica.createEntityManager();
 		
 		//Busca a pizza no BD com o código 1

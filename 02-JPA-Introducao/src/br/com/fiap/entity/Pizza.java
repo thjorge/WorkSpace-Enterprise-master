@@ -14,7 +14,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
-import javax.swing.JOptionPane;
 
 @Entity
 @Table(name="TB_PIZZA")
@@ -25,33 +24,38 @@ public class Pizza {
 	@Column(name="CD_PIZZA")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="sqPizza")
 	private int codigo;
-
+	
 	@Column(name="VL_PIZZA")
 	private double preco;
-
+	
 	@Column(nullable=false,name="DS_SABOR")
 	private String sabor;
-
+	
 	@Column(name="DS_BORDA")
 	private BordaRecheada recheio;
-
+	
 	@Column(name="DS_TAMANHO")
 	private TamanhoPizza tamanho;
-
+	
 	@Column(name="DT_ENTREGA")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar data;
-
+	
 	@Transient //Não será uma coluna na tabela
 	private String comentario;
-
+	
 	@Lob
 	private byte[] foto;
 
-	public Pizza(){
-
+	@PostPersist
+	public void log(){
+		System.out.println("Cadastrando uma pizza");
 	}
-
+	
+	public Pizza(){
+		
+	}
+	
 	public Pizza(int codigo, double preco, String sabor, BordaRecheada recheio, TamanhoPizza tamanho, Calendar data,
 			String comentario, byte[] foto) {
 		super();
@@ -65,11 +69,6 @@ public class Pizza {
 		this.foto = foto;
 	}
 
-	@PostPersist
-	public void log(){
-		JOptionPane.showMessageDialog(null, "Cadastrando uma pizza");
-	}
-	
 	public int getCodigo() {
 		return codigo;
 	}
@@ -133,5 +132,5 @@ public class Pizza {
 	public void setFoto(byte[] foto) {
 		this.foto = foto;
 	}
-
+	
 }

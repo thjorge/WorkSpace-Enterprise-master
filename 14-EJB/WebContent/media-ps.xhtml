@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+
+	<h2>Calculo das Médias</h2>
+	<h:messages />
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputLabel value="NAC" for="nac"/>
+			<h:inputText value="#{fiapBean.nac}" id="nac" >
+				<f:validateDoubleRange minimum="0" maximum="10"/>
+			</h:inputText>
+			
+			<h:outputLabel value="AM" for="am"/>
+			<h:inputText value="#{fiapBean.am}" id="am" >
+				<f:validateDoubleRange minimum="0" maximum="10"/>
+			</h:inputText>
+			
+			<h:outputLabel value="Enade" for="enade"/>
+			<h:inputText value="#{fiapBean.enade}" id="enade">
+				<f:validateDoubleRange minimum="0" maximum="10"/>
+			</h:inputText>	
+			
+			<h:outputLabel value="PS" for="ps"/>
+			<h:inputText value="#{fiapBean.ps}" id="ps">
+				<f:validateDoubleRange minimum="0" maximum="10"/>
+			</h:inputText>
+			
+			<h:commandButton action="#{fiapBean.calcular()}" value="Calcular PS" />
+			<h:commandButton action="#{fiapBean.calcularEdane()}" value="Calcular Enade" />	
+		</h:panelGrid>
+	</h:form>
+</body> 
+</html>

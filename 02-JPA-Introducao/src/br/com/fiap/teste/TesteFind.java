@@ -10,7 +10,7 @@ import br.com.fiap.entity.Pizza;
 public class TesteFind {
 
 	public static void main(String[] args) {
-		EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("THJORGE");
+		EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("CLIENTE_ORACLE");
 		
 		EntityManager em = fabrica.createEntityManager();
 		
